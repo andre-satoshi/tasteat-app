@@ -77,8 +77,9 @@ angular.module('app', ['ionic', 'pascalprecht.translate'])
   $scope.selected_servings = 0;
 
   $scope.$watch('recipe_categories|filter:{selected:true}', function (new_value) {
-    $scope.active_filters['recipe_categories'] = new_value.map(function (cat) {
-      return cat.id;
+    if (new_value)
+      $scope.active_filters['recipe_categories'] = new_value.map(function (cat) {
+        return cat.id;
     });
   }, true);
 
